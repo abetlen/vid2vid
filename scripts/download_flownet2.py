@@ -2,7 +2,7 @@ import os
 from download_gdrive import *
 import torch
 
-if torch.__version__ == '0.4.1':
+if torch.__version__ == '1.0.1':
 	file_id = '1gKwE1Ad41TwtAzwDcN3dYa_S6DcVyiSl'
 	file_name = 'flownet2_pytorch_041.zip'
 else:
