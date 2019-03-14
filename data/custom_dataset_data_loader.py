@@ -16,6 +16,9 @@ def CreateDataset(opt):
     elif opt.dataset_mode == 'test':
         from data.test_dataset import TestDataset
         dataset = TestDataset()
+    elif opt.dataset_mode == 'stanford':
+        from data.stanford_campus_dataset import StanfordDatasetTemporal
+        dataset = StanfordDatasetTemporal()
     else:
         raise ValueError("Dataset [%s] not recognized." % opt.dataset_mode)
 
