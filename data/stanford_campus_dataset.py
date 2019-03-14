@@ -539,7 +539,8 @@ class StanfordDatasetTemporal(Dataset):
                  to_tensor=True,
                  n_classes=n_one_hot,
                  one_hot_idxs=one_hot_idxs,
-                 n_sequential_frames=12):
+                 n_sequential_frames=12,
+                 classes_of_interest=classes_of_interest):
         self.rootdir = rootdir
 
         if transform_list is None:
@@ -560,6 +561,8 @@ class StanfordDatasetTemporal(Dataset):
         self.n_seq_frames = n_sequential_frames
         self.n_classes = n_classes
         self.one_hot_idxs = one_hot_idxs
+        self.classes_of_interest = classes_of_interest
+
         fileset = set()
         frame_root_path = {}
         annotations = {}
@@ -648,7 +651,7 @@ class StanfordDatasetTemporal(Dataset):
             annotation = data['annotations'][data['annotations']['frame'] == curr_frame_idx]
             annotation = self.crop_annotation(annotation, data['region'])
 
-            one_hot_tensor = self.generate_one_hot_tensor(annotation, dim, 16, self.n_classes, self.one_hot_idxs)
+            one_hot_tensor = self.generate_one_hot_tensor(annotation, dim, 16, self.n_classes, self.one_hot_idxs, self.classes_of_interest)
             A[i] = torch.cat([one_hot_tensor, background], 1)
 
             # B tensor
