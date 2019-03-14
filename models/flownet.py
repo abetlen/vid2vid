@@ -3,6 +3,8 @@ import torch
 import sys
 from .base_model import BaseModel
 
+from collections import namedtuple
+
 class FlowNet(BaseModel):
     def name(self):
         return 'FlowNet'
@@ -14,8 +16,11 @@ class FlowNet(BaseModel):
         from .flownet2_pytorch import models as flownet2_models
         from .flownet2_pytorch.utils import tools as flownet2_tools
         from .flownet2_pytorch.networks.resample2d_package.resample2d import Resample2d
-        
-        self.flowNet = flownet2_tools.module_to_dict(flownet2_models)['FlowNet2']().cuda(self.gpu_ids[0])        
+
+        ARGS = namedtuple("ARGS", "fp16 rgb_max")
+        args = ARGS(False, 255)
+
+        self.flowNet = flownet2_tools.module_to_dict(flownet2_models)['FlowNet2'](args).cuda(self.gpu_ids[0])        
         checkpoint = torch.load('models/flownet2_pytorch/FlowNet2_checkpoint.pth.tar')
         self.flowNet.load_state_dict(checkpoint['state_dict'])
         self.flowNet.eval() 
