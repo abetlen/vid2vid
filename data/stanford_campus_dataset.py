@@ -632,13 +632,13 @@ class StanfordDatasetTemporal(Dataset):
         start_idx = max([i for i in idxs if i <= idx])
 
         data = self.data[start_idx]
-        dim = data['region']['size']
+        width, height = data['region']['size']
         background = self.final_transform(self.transform(data['background']))
         background = background.unsqueeze(0)
 
         first_frame_idx = (idx - start_idx) + data['region']['start']
-        A = torch.empty([self.n_seq_frames, self.n_classes + 3, 256, 256])
-        B = torch.empty([self.n_seq_frames, 3, 256, 256])
+        A = torch.empty([self.n_seq_frames, self.n_classes + 3, width, height])
+        B = torch.empty([self.n_seq_frames, 3, width, height])
 
         inst, A_path, B_path = 0, 0, 0
 
@@ -660,7 +660,8 @@ class StanfordDatasetTemporal(Dataset):
                 frame.load()
                 frame_tensor = self.final_transform(self.transform(frame))
                 B[i] = frame_tensor
-
+        A = A.view(-1, width, height)
+        B = B.view(-1, width, height)
         # B: expected output
         return {'A': A, 'B': B, 'inst': inst, 'A_path': A_path, 'B_paths': B_path}
 
