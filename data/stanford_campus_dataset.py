@@ -632,7 +632,9 @@ class StanfordDatasetTemporal(Dataset):
         start_idx = max([i for i in idxs if i <= idx])
 
         data = self.data[start_idx]
-        width, height = data['region']['size']
+        dim = data['region']['size']
+        width, height = dim
+        
         background = self.final_transform(self.transform(data['background']))
         background = background.unsqueeze(0)
 
