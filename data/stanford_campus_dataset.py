@@ -532,7 +532,7 @@ one_hot_idxs = {'background': 0,
 
 
 class StanfordDatasetTemporal(Dataset):
-    def __init__(self, rootdir='datasets/stanford_campus_dataset',
+    def __init__(self, rootdir='/home/ubuntu/datasets',
                  regions=regions,
                  transform_list=[GaussianBlur(sigma=1.5)],
                  normalize=True,
@@ -640,7 +640,7 @@ class StanfordDatasetTemporal(Dataset):
         A = torch.empty([self.n_seq_frames, self.n_classes + 3, 256, 256])
         B = torch.empty([self.n_seq_frames, 3, 256, 256])
 
-        inst, A_path, B_path = None, None, None
+        inst, A_path, B_path = 0, 0, 0
 
         #  Build up tensor
         for i in range(self.n_seq_frames):
