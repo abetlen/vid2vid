@@ -17,8 +17,11 @@ def CreateDataset(opt):
         from data.test_dataset import TestDataset
         dataset = TestDataset()
     elif opt.dataset_mode == 'stanford':
-        from data.stanford_campus_dataset import StanfordDatasetTemporal
-        dataset = StanfordDatasetTemporal()
+        from patagona_common.data.datasets import StanfordDatasetTemporal
+        dataset = StanfordDatasetTemporal(root_dir='/home/ubuntu/datasets')
+    elif opt.dataset_mode == 'kaist':
+        from patagona_common.data.datasets import KAISTTemporalDataset
+        dataset = KAISTTemporalDataset(root_dir='/home/ubuntu/datasets', video_sets=None)
     else:
         raise ValueError("Dataset [%s] not recognized." % opt.dataset_mode)
 
@@ -34,8 +37,7 @@ class CustomDatasetDataLoader(BaseDataLoader):
     def initialize(self, opt):
         BaseDataLoader.initialize(self, opt)
         self.dataset = CreateDataset(opt)
-        self.dataloader = torch.utils.data.DataLoader(
-            self.dataset,
+        self.dataloader = torch.utils.patagona_common.data.datasets,
             batch_size=opt.batchSize,
             shuffle=not opt.serial_batches,
             num_workers=int(opt.nThreads))
