@@ -68,6 +68,9 @@ class BaseOptions():
         self.parser.add_argument('--no_dist_map', action='store_true', help='do *not* use distance transform map as input')
         self.parser.add_argument('--random_scale_points', action='store_true', help='randomly scale face keypoints a bit to create different results')
 
+        # ir/rgb specific
+        self.parser.add_argument('--imgmode', type=str, help='rgb2ir or ir2rgb. Applies only to relevant datasets.')
+        
         # pose specific
         self.parser.add_argument('--densepose_only', action='store_true', help='use only densepose as input')
         self.parser.add_argument('--openpose_only', action='store_true', help='use only openpose as input') 
