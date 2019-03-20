@@ -1,4 +1,4 @@
-python train.py --name stanford_256_g1_rgb2ir \
+python train.py --name kaist_256_g1_rgb2ir \
        --dataroot datasets/stanford_campus_dataset/ \
        --dataset_mode kaist \
        --loadSize 256 --ngf 64 \
