@@ -199,9 +199,9 @@ def train():
                         input_image[input_image2 != 0] = input_image2[input_image2 != 0]
                 else:
                     c = 3 if opt.input_nc == 3 else 1
-                    input_image = util.tensor2im(real_A[0, -1, :c], normalize=False)
+                    input_image = util.tensor2im(real_A[0, -1, :c], normalize=True)
                 if opt.use_instance:
-                    edges = util.tensor2im(real_A[0, -1, -1:,...], normalize=False)
+                    edges = util.tensor2im(real_A[0, -1, -1:,...], normalize=True)
                     input_image += edges[:,:,np.newaxis]
                 
                 if opt.add_face_disc:
