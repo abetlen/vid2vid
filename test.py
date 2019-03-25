@@ -30,9 +30,10 @@ save_dir = os.path.join(opt.results_dir, opt.name, '%s_%s' % (opt.phase, opt.whi
 print('Doing %d frames' % len(dataset))
 for i, data in enumerate(dataset):
     if i >= opt.how_many:
-        break    
-    if data['change_seq']:
-        model.fake_B_prev = None
+        break
+    
+    # if data['change_seq']:
+    #     model.fake_B_prev = None
 
     _, _, height, width = data['A'].size()
     A = Variable(data['A']).view(1, -1, input_nc, height, width)
