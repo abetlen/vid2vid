@@ -7,5 +7,4 @@ python test.py --name kaist_256_g1_ir2rgb \
        --no_first_img \
        --imgmode ir2rgb \
        --use_single_G \
-       --n_frames_total 12 \
 
