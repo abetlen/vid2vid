@@ -37,7 +37,7 @@ for i in range(opt.how_many):
     idx = start_idxs[i]
     data = dataset[idx]
     model.fake_B_prev = None
-
+    data = data.unsqueeze(0)
     _, _, height, width = data['A'].size()
     A = Variable(data['A']).view(1, -1, input_nc, height, width)
     B = Variable(data['B']).view(1, -1, opt.output_nc, height, width) if len(data['B'].size()) > 2 else None
