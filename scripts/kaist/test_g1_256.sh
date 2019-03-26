@@ -3,6 +3,7 @@ python test.py --name kaist_256_g1_ir2rgb \
        --loadSize 256 --ngf 64 \
        --input_nc 3 \
        --output_nc 3 \
+       --use_single_G \
        --imgmode ir2rgb \
        --how_many 50 \
 
