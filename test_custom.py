@@ -53,7 +53,7 @@ for i in range(opt.how_many):
         fake_B = util.tensor2im(generated[0].data[0])
         visual_list = [('real_A', real_A), 
                        ('fake_B', util.tensor2im(generated[0].data[0]))]
-    visuals = OrderedDict(visual_list) 
-    img_path = data['A_path'] + f'_{i}'
-    print('process image... %s' % img_path)
-    visualizer.save_images(save_dir, visuals, img_path)
+        visuals = OrderedDict(visual_list) 
+        img_path = data['A_path'] + f'_{i}'
+        print('process image... %s' % img_path)
+        visualizer.save_images(save_dir, visuals, img_path)
