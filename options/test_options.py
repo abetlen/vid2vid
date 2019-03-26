@@ -12,4 +12,5 @@ class TestOptions(BaseOptions):
         self.parser.add_argument('--how_many', type=int, default=300, help='how many test images to run')        
         self.parser.add_argument('--use_real_img', action='store_true', help='use real image for first frame')
         self.parser.add_argument('--start_frame', type=int, default=0, help='frame index to start inference on')        
+        self.parser.add_argument('--n_frames_total', type=int, default=30, help='the overall number of frames in a sequence to test with')                
         self.isTrain = False
