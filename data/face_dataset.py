@@ -42,7 +42,7 @@ class FaceDataset(BaseDataset):
         transform_scaleA = get_transform(self.opt, params, method=Image.BILINEAR, normalize=False)
         transform_label = get_transform(self.opt, params, method=Image.NEAREST, normalize=False)
         transform_scaleB = get_transform(self.opt, params)
-        
+       
         # read in images        
         frame_range = list(range(n_frames_total)) if self.A is None else [self.opt.n_frames_G-1]        
         for i in frame_range:
