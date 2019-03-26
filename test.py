@@ -11,7 +11,7 @@ from models.models import create_model
 import util.util as util
 from util.visualizer import Visualizer
 from util import html
-import code
+
 opt = TestOptions().parse(save=False)
 opt.nThreads = 1   # test code only supports nThreads = 1
 opt.batchSize = 1  # test code only supports batchSize = 1
@@ -38,12 +38,12 @@ for i, data in enumerate(dataset):
     B = Variable(data['B']).view(1, -1, opt.output_nc, height, width) if len(data['B'].size()) > 2 else None
     inst = Variable(data['inst']).view(1, -1, 1, height, width) if len(data['inst'].size()) > 2 else None
     generated = model.inference(A, B, inst)
-    code.interact(local=locals())
+
     if opt.label_nc != 0:
         real_A = util.tensor2label(generated[1], opt.label_nc)
     else:
         c = 3 if opt.input_nc == 3 else 1
-        real_A = util.tensor2im(generated[1][:c], normalize=False)    
+        real_A = util.tensor2im(generated[1][:c], normalize=True)
         
     visual_list = [('real_A', real_A), 
                    ('fake_B', util.tensor2im(generated[0].data[0]))]
