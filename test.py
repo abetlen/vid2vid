@@ -11,6 +11,7 @@ from models.models import create_model
 import util.util as util
 from util.visualizer import Visualizer
 from util import html
+import code
 
 opt = TestOptions().parse(save=False)
 opt.nThreads = 1   # test code only supports nThreads = 1
@@ -46,7 +47,7 @@ for i, data in enumerate(dataset):
     else:
         c = 3 if opt.input_nc == 3 else 1
         real_A = util.tensor2im(generated[1][:c], normalize=True)
-        
+    code.interact(local=locals())
     visual_list = [('real_A', real_A), 
                    ('fake_B', util.tensor2im(generated[0].data[0]))]
     visuals = OrderedDict(visual_list) 
