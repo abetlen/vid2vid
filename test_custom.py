@@ -18,8 +18,10 @@ opt.nThreads = 1   # test code only supports nThreads = 1
 opt.batchSize = 1  # test code only supports batchSize = 1
 opt.serial_batches = True  # no shuffle
 
-data_loader = CreateDataLoader(opt)
-dataset = data_loader.load_data()
+# data_loader = CreateDataLoader(opt)
+# dataset = data_loader.load_data()
+from patagona_common.data.datasets import KAISTTemporalDataset
+dataset = KAISTTemporalDataset(root_dir='/home/ubuntu/datasets', video_sets=None)
 model = create_model(opt)
 visualizer = Visualizer(opt)
 input_nc = 1 if opt.label_nc != 0 else opt.input_nc
