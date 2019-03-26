@@ -45,8 +45,8 @@ for i in range(opt.how_many):
     B = None
     inst = None
 
-    for i in range(opt.n_frames_total):
-        generated = model.inference(A[:, i, ...].unsqueeze(0), B, inst)
+    for i in range(opt.n_frames_total - 3):
+        generated = model.inference(A[:, i:i+3, ...].unsqueeze(0), B, inst)
 
         c = 3 if opt.input_nc == 3 else 1
         real_A = util.tensor2im(generated[1][:c], normalize=True)
