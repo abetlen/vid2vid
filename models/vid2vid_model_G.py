@@ -6,6 +6,7 @@ import torch
 import torch.nn.functional as F
 import os
 import sys
+import code
 from collections import OrderedDict
 from torch.autograd import Variable
 import util.util as util
@@ -198,7 +199,7 @@ class Vid2VidModelG(BaseModel):
             self.is_first_frame = not hasattr(self, 'fake_B_prev') or self.fake_B_prev is None
             if self.is_first_frame:
                 self.fake_B_prev = self.generate_first_frame(real_A, real_B, pool_map)                 
-            
+            code.interact(local=locals())
             real_A = self.build_pyr(real_A)            
             self.fake_B_feat = self.flow_feat = self.fake_B_fg_feat = None            
             for s in range(self.n_scales):
