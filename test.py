@@ -47,7 +47,7 @@ for i, data in enumerate(dataset):
     else:
         c = 3 if opt.input_nc == 3 else 1
         real_A = util.tensor2im(generated[1][:c], normalize=True)
-    code.interact(local=locals())
+
     visual_list = [('real_A', real_A), 
                    ('fake_B', util.tensor2im(generated[0].data[0]))]
     visuals = OrderedDict(visual_list) 
