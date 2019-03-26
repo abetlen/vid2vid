@@ -24,7 +24,7 @@ def CreateDataset(opt):
         dataset = KAISTTemporalDataset(root_dir='/home/ubuntu/datasets', video_sets=None)
     elif opt.dataset_mode == 'kaist_test':
         from patagona_common.data.datasets import KAISTTemporalDataset
-        dataset = KAISTTemporalDataset(root_dir='/home/ubuntu/datasets', video_sets=None, random_crop=False)
+        dataset = KAISTTemporalDataset(root_dir='/home/ubuntu/datasets', video_sets=None, random_crop=False, n_seq_frames=3)
 
     else:
         raise ValueError("Dataset [%s] not recognized." % opt.dataset_mode)
