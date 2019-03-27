@@ -6,7 +6,6 @@ python test.py --name kaist_256_g1_ir2rgb \
        --input_nc 3 \
        --output_nc 3 \
        --no_first_img \
-       --n_frames_total 3 \
        --imgmode ir2rgb \
-       --how_many 500 \
+       --how_many 50 \
 
