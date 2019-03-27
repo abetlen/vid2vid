@@ -27,7 +27,7 @@ def CreateDataset(opt):
         dataset = KAISTTemporalDataset(root_dir='/home/ubuntu/datasets',
                                        video_sets=None,
                                        random_crop=False,
-                                       n_seq_frames=opt.n_frames_G - 1,
+                                       n_seq_frames=opt.n_frames_G,
                                        output_dim=(opt.loadSize, opt.loadSize))
 
     else:
