@@ -18,7 +18,8 @@ def CreateDataset(opt):
         dataset = TestDataset()
     elif opt.dataset_mode == 'stanford':
         from patagona_common.data.datasets import StanfordDatasetTemporal
-        dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/datasets')
+        dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/datasets',
+                                          video_sets=['set06', 'set07', 'set08', 'set09', 'set10', 'set11'])
     elif opt.dataset_mode == 'kaist':
         from patagona_common.data.datasets import KAISTTemporalDataset
         dataset = KAISTTemporalDataset(root_dir='/home/ubuntu/datasets',
