@@ -10,4 +10,5 @@ python train.py --name kaist_256_g8_ir2rgb \
        --batchSize 8 \
        --n_frames_total 12 \
        --niter 20 --niter_decay 20 \
-       --tf_log
+       --tf_log \
+       --continue_train
