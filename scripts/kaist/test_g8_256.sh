@@ -2,9 +2,9 @@
 
 if [[ $# -eq 1 ]]
 then
-    FIRST_FRAME = $1
+    FIRST_FRAME=$1
 else
-    FIRST_FRAME = 0
+    FIRST_FRAME=0
 fi
 
 python test.py --name kaist_256_g8_ir2rgb \
