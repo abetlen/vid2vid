@@ -2,9 +2,9 @@
 
 if [[ $# -eq 1 ]]
 then
-    FIRST_FRAME=$1
+    START_FRAME=$1
 else
-    FIRST_FRAME=0
+    START_FRAME=0
 fi
 
 python test.py --name kaist_256_g8_ir2rgb \
@@ -17,4 +17,4 @@ python test.py --name kaist_256_g8_ir2rgb \
        --no_first_img \
        --imgmode ir2rgb \
        --how_many 50 \
-       --first_frame $FIRST_FRAME
+       --start_frame $START_FRAME
