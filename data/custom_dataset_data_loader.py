@@ -31,6 +31,14 @@ def CreateDataset(opt):
                                        random_crop=False,
                                        n_seq_frames=opt.n_frames_G,
                                        output_dim=(opt.loadSize, opt.loadSize))
+    elif opt.dataset_mode == 'kaist_test_single':
+        from patagona_common.data.datasets import KAISTTemporalDataset
+        dataset = KAISTTemporalDataset(root_dir='/home/ubuntu/datasets',
+                                       video_sets=['set06', 'set07', 'set08', 'set09', 'set10', 'set11'],
+                                       random_crop=False,
+                                       n_seq_frames=opt.n_frames_G,
+                                       output_dim=(opt.loadSize, opt.loadSize),
+                                       all_first=True)
 
     else:
         raise ValueError("Dataset [%s] not recognized." % opt.dataset_mode)
