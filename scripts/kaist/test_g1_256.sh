@@ -9,7 +9,7 @@ fi
 
 python test.py --name kaist_256_g1_ir2rgb \
        --dataroot /home/ubuntu/datasets/images/ \
-       --dataset_mode kaist_test \
+       --dataset_mode kaist_test_single \
        --loadSize 512 --ngf 64 \
        --fineSize 256 \
        --input_nc 3 \
