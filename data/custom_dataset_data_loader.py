@@ -6,13 +6,13 @@ def CreateDataset(opt):
     dataset = None
     if opt.dataset_mode == 'temporal':
         from data.temporal_dataset import TemporalDataset
-        dataset = TemporalDataset()   
+        dataset = TemporalDataset()
     elif opt.dataset_mode == 'face':
         from data.face_dataset import FaceDataset
-        dataset = FaceDataset() 
+        dataset = FaceDataset()
     elif opt.dataset_mode == 'pose':
         from data.pose_dataset import PoseDataset
-        dataset = PoseDataset() 
+        dataset = PoseDataset()
     elif opt.dataset_mode == 'test':
         from data.test_dataset import TestDataset
         dataset = TestDataset()
