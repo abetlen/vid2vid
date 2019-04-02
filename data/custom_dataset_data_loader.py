@@ -22,12 +22,13 @@ def CreateDataset(opt):
 
     elif opt.dataset_mode == 'stanford_test':
         from patagona_common.data.datasets import StanfordDatasetTemporal
-        region = [dict(scene='deathCircle', video=0, size=None, sequences=None, anchors=None)]
+        regions = [dict(scene='deathCircle', video=0, size=None, sequences=None, anchors=None)]
         dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/stanford_campus_dataset_synthetic',
-                                          regions=region,
+                                          regions=regions,
                                           center_crop=True,
                                           output_dim=(opt.loadSize, opt.loadSize),
-                                          n_sequential_frames=opt.n_frames_G)
+                                          n_sequential_frames=opt.n_frames_G,
+                                          inference=True)
 
     elif opt.dataset_mode == 'kaist':
         from patagona_common.data.datasets import KAISTTemporalDataset
