@@ -20,10 +20,20 @@ def CreateDataset(opt):
         from patagona_common.data.datasets import StanfordDatasetTemporal
         dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/datasets')
 
-    elif opt.dataset_mode == 'stanford_test':
+    elif opt.dataset_mode == 'stanford_custom':
         from patagona_common.data.datasets import StanfordDatasetTemporal
         regions = [dict(scene='deathCircle', video=0, size=(1400, 1904), sequences=None, anchors=None)]
         dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/stanford_campus_dataset_synthetic',
+                                          regions=regions,
+                                          crop_mode='center',
+                                          output_dim=(opt.loadSize, opt.loadSize),
+                                          n_sequential_frames=opt.n_frames_G,
+                                          inference=True)
+
+    elif opt.dataset_mode == 'stanford_test':
+        from patagona_common.data.datasets import StanfordDatasetTemporal
+        regions = [dict(scene='deathCircle', video=3, size=(1400, 1904), sequences=None, anchors=None)]
+        dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/datasets',
                                           regions=regions,
                                           crop_mode='center',
                                           output_dim=(opt.loadSize, opt.loadSize),
