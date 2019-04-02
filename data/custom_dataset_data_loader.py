@@ -22,7 +22,7 @@ def CreateDataset(opt):
 
     elif opt.dataset_mode == 'stanford_test':
         from patagona_common.data.datasets import StanfordDatasetTemporal
-        regions = [dict(scene='deathCircle', video=0, size=None, sequences=None, anchors=None)]
+        regions = [dict(scene='deathCircle', video=0, size=(1400, 1904), sequences=None, anchors=None)]
         dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/stanford_campus_dataset_synthetic',
                                           regions=regions,
                                           center_crop=True,
