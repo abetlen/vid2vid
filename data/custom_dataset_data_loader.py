@@ -20,6 +20,13 @@ def CreateDataset(opt):
         from patagona_common.data.datasets import StanfordDatasetTemporal
         dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/datasets')
 
+    elif opt.dataset_mode == 'stanford_test':
+        from patagona_common.data.datasets import StanfordDatasetTemporal
+        dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/stanford_campus_dataset_synthetic',
+                                          center_crop=True,
+                                          output_dim=(opt.loadSize, opt.loadSize),
+                                          n_sequential_frames=opt.n_frames_G)
+
     elif opt.dataset_mode == 'kaist':
         from patagona_common.data.datasets import KAISTTemporalDataset
         dataset = KAISTTemporalDataset(root_dir='/home/ubuntu/datasets',
