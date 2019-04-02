@@ -5,4 +5,4 @@ python test.py --name stanford_256_g8 \
        --loadSize 1400 \
        --ngf 64 \
        --no_first_img \
-       --how_many 50
+       --how_many 300
