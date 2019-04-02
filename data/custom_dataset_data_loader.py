@@ -25,7 +25,7 @@ def CreateDataset(opt):
         regions = [dict(scene='deathCircle', video=0, size=(1400, 1904), sequences=None, anchors=None)]
         dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/stanford_campus_dataset_synthetic',
                                           regions=regions,
-                                          center_crop=True,
+                                          crop_mode='center',
                                           output_dim=(opt.loadSize, opt.loadSize),
                                           n_sequential_frames=opt.n_frames_G,
                                           inference=True)
