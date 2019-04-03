@@ -5,4 +5,6 @@ python test.py --name stanford_256_g8 \
        --loadSize 1400 \
        --ngf 64 \
        --no_first_img \
-       --how_many 300
+       --how_many 300 \
+       --test_video_id 3 \
+       --test_video_scene coupa

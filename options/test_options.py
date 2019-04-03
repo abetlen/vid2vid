@@ -12,5 +12,7 @@ class TestOptions(BaseOptions):
         self.parser.add_argument('--how_many', type=int, default=300, help='how many test images to run')        
         self.parser.add_argument('--use_real_img', action='store_true', help='use real image for first frame')
         self.parser.add_argument('--start_frame', type=int, default=0, help='frame index to start inference on')        
-        self.parser.add_argument('--n_frames_total', type=int, default=30, help='the overall number of frames in a sequence to test with')                
+        self.parser.add_argument('--n_frames_total', type=int, default=30, help='the overall number of frames in a sequence to test with')
+        self.parser.add_argument('--test_video_scene', type=int, default='deathCircle', help='scene of test video from original dataset')
+        self.parser.add_argument('--test_video_id', type=int, default=3, help='video id of test video from original dataset')
         self.isTrain = False
