@@ -40,6 +40,23 @@ def CreateDataset(opt):
                                           n_sequential_frames=opt.n_frames_G,
                                           inference=True)
 
+    elif opt.dataset_mode == 'stanford_synthetic':
+        from patagona_common.data.datasets import StanfordDatasetTemporal
+        regions = [dict(scene='syntheticSequence',
+                        video=1, size=(1400, 1904), sequences=None, anchors=None),
+                   dict(scene='syntheticSequence',
+                        video=2, size=(1400, 1904), sequences=None, anchors=None),
+                   dict(scene='syntheticSequence',
+                        video=3, size=(1400, 1904), sequences=None, anchors=None),
+                   dict(scene='syntheticSequence',
+                        video=4, size=(1400, 1904), sequences=None, anchors=None)]
+        dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/datasets',
+                                          regions=regions,
+                                          crop_mode='center',
+                                          output_dim=(opt.loadSize, opt.loadSize),
+                                          n_sequential_frames=opt.n_frames_G,
+                                          inference=True)
+
     elif opt.dataset_mode == 'kaist':
         from patagona_common.data.datasets import KAISTTemporalDataset
         dataset = KAISTTemporalDataset(root_dir='/home/ubuntu/datasets',
