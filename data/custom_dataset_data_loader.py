@@ -50,7 +50,7 @@ def CreateDataset(opt):
                         video=3, size=(1400, 1904), sequences=None, anchors=None),
                    dict(scene='syntheticSequence',
                         video=4, size=(1400, 1904), sequences=None, anchors=None)]
-        dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/datasets',
+        dataset = StanfordDatasetTemporal(rootdir='/home/ubuntu/stanford_campus_dataset_synthetic',
                                           regions=regions,
                                           crop_mode='center',
                                           output_dim=(opt.loadSize, opt.loadSize),
