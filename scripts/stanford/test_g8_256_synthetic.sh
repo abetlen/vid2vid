@@ -1,5 +1,5 @@
 python test.py --name stanford_256_g8 \
-       --dataroot datasets/stanford_campus_dataset/ \
+       --dataroot '/home/ubuntu/stanford_campus_dataset_synthetic' \
        --dataset_mode stanford_synthetic \
        --input_nc 6 \
        --loadSize 1400 \
