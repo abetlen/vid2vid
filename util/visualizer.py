@@ -112,7 +112,8 @@ class Visualizer():
 
     # save image to the disk
     def save_images(self, image_dir, visuals, image_path, webpage=None):        
-        dirname = os.path.basename(os.path.dirname(image_path[0]))
+        # dirname = os.path.basename(os.path.dirname(image_path[0]))
+        dirname = os.path.dirname(image_path[0])
         image_dir = os.path.join(image_dir, dirname)
         util.mkdir(image_dir)
         name = os.path.basename(image_path[0])
