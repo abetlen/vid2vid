@@ -67,7 +67,7 @@ def CreateDataset(opt):
                                        video_sets=['set06', 'set07', 'set08', 'set09', 'set10', 'set11'],
                                        random_crop=False,
                                        n_seq_frames=opt.n_frames_G,
-                                       output_dim=(opt.loadSize, opt.loadSize),
+                                       output_dim=(640, 512),
                                        start_frame=opt.start_frame)
     elif opt.dataset_mode == 'kaist_test_single':
         from patagona_common.data.datasets import KAISTTemporalDataset
@@ -75,7 +75,7 @@ def CreateDataset(opt):
                                        video_sets=['set06', 'set07', 'set08', 'set09', 'set10', 'set11'],
                                        random_crop=False,
                                        n_seq_frames=opt.n_frames_G,
-                                       output_dim=(opt.loadSize, opt.loadSize),
+                                       output_dim=(640, 512),
                                        all_first=True,
                                        start_frame=opt.start_frame)
 

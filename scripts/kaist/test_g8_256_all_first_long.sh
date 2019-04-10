@@ -16,5 +16,5 @@ python test.py --name kaist_256_g8_ir2rgb \
        --output_nc 3 \
        --no_first_img \
        --imgmode ir2rgb \
-       --how_many 500 \
+       --how_many 60000 \
        --start_frame $START_FRAME
